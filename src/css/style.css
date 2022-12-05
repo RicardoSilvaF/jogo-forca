@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 /* \/ \/ --------------------- CSS DO JOGO.JS -------------------- \/ \/ */
 .area-geral{
     display: flex;
