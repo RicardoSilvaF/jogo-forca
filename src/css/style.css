@@ -39,13 +39,25 @@ button:hover{
     background: #27AE60;
 }
 
-.palavra-secreta{
+.area-geral h1{
     font-family: 'Noto Sans', sans-serif;
     font-size: 50px;
     line-height: 68px;
     position: absolute;
     right: 61px;
     top: 372px;
+}
+
+.preto{
+    color: black;
+}
+
+.vermelho{
+    color: red;
+}
+
+.verde{
+    color: #27AE60;
 }
 /* /\ /\ --------------------- CSS DO JOGO.JS -------------------- /\ /\ */
 
