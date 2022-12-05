@@ -13,6 +13,7 @@ export default function App() {
   const [palavraJogo, setPalavraJogo] = useState([])
   const [palavraEscolhida, setPalavraEscolhida] = useState([])
   const [corPalavra, setCorPalavra] = useState("preto")
+  const [chute, setChute] = useState("")
 
   function iniciarJogo(){
     sortearPalavra()
@@ -34,7 +35,6 @@ export default function App() {
 
   function clicarLetra(letraClicada){
     setLetrasUsadas([...letrasUsadas, letraClicada])
-    console.log(palavraEscolhida)
     if(palavraEscolhida.includes(letraClicada)){
       acertouLetra(letraClicada)
     }
@@ -74,11 +74,24 @@ export default function App() {
     setPalavraJogo(palavraEscolhida)
   }
 
+  function chutarPalavra(){
+    let palavraString = ""
+    palavraEscolhida.forEach(letra => palavraString += letra)
+    if(chute === palavraString){
+      setCorPalavra("verde")
+    }
+    else{
+      setCorPalavra("vermelho")
+      setErros(6)
+    }
+    finalizar()
+  }
+
   return (
     <div className="App">
       <Jogo iniciarJogo={iniciarJogo} erros={erros} palavraJogo={palavraJogo} corPalavra={corPalavra}/>
       <Letras letrasUsadas={letrasUsadas} clicarLetra={clicarLetra}/>
-      <Chute desabilitarInput={desabilitarInput}/>
+      <Chute desabilitarInput={desabilitarInput} chute={chute} setChute={setChute} chutarPalavra={chutarPalavra}/>
     </div>
   );
 }
